@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 40px;
+  transition: 0.3s;
+}
+
+.app h1 {
+  text-align: center;
+}
+
+.claro {
+  background: #f4f4f4;
+  color: #111111;
+}
+
+.escuro {
+  background: #080808;
+  color: #ffffff;
+}
+
+.card {
+  max-width: 650px;
+  margin: 20px auto;
+  padding: 22px;
+  border: 1px solid #777777;
+  border-radius: 12px;
+}
+
+.card h2 {
+  color: #ff7a00;
+}
+
+button {
+  padding: 10px 16px;
+  background: #ff7a00;
+  color: #111111;
+  border: 0;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.perfil {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #ff7a00;
+  border-radius: 10px;
+}
