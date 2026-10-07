@@ -4,54 +4,54 @@
 
 body {
   margin: 0;
+  background: #080808;
+  color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.app {
-  min-height: 100vh;
-  padding: 40px;
-  transition: 0.3s;
+.container {
+  width: min(700px, 90%);
+  margin: 40px auto;
 }
 
-.app h1 {
+.container h1 {
   text-align: center;
-}
-
-.claro {
-  background: #f4f4f4;
-  color: #111111;
-}
-
-.escuro {
-  background: #080808;
-  color: #ffffff;
-}
-
-.card {
-  max-width: 650px;
-  margin: 20px auto;
-  padding: 22px;
-  border: 1px solid #777777;
-  border-radius: 12px;
-}
-
-.card h2 {
   color: #ff7a00;
 }
 
-button {
-  padding: 10px 16px;
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  width: 100%;
+  padding: 12px;
+  background: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #444444;
+  border-radius: 8px;
+}
+
+.formulario textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.formulario button {
+  margin-top: 8px;
+  padding: 12px;
   background: #ff7a00;
   color: #111111;
   border: 0;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-}
-
-.perfil {
-  margin-top: 18px;
-  padding: 16px;
-  border: 1px solid #ff7a00;
-  border-radius: 10px;
 }
