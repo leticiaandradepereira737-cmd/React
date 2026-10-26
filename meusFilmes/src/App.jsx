@@ -1,51 +1,131 @@
-// // import { useState } from "react"
-// // import Resultado from "./components/Resultado";
-// // import BuscaCep from "./components/BuscaCep";
+import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import Header from "./components/Header";
+import Card from "./components/Card";
+import FormularioFilme from "./components/FormularioFilme";
+import Filtro from "./components/Filtros";
+import ListaFilmes from "./components/ListaFilmes";
 
-// import Contador from "./components/Contador";
+function App() {
 
-// function App() {
+    const filmesSalvos = localStorage.getItem('filmes')
 
-//   // const [cep, setCep] = useState("")
-//   // const [endereco, setEndereco] = useState("")
-//   // const [erro, setErro] = useState("")
+    const [filmes, setFilmes] = useState(filmesSalvos)
+    const [titulo, setTitulo] = useState('')
+    const [genero, setGenero] = useState('')
+    const [filtro, setFiltro] = useState('todos')
+    const [filmeSelecionado, setFilmeSelecionado] = useState(null)
 
-//   // async function buscarCep() {
-//   //                               // Regex CPF
-//   //   const cepLimpo = cep.replace(/\D/g, "");
+    useEffect(() => {
+        localStorage.setItem('filmes', JSON.stringify(filmes))
+    }, [filmes])
 
-//   //   if (cepLimpo.length !== 8){
-//   //     setErro("Digite um CEP com oito números");
-//   //     return;
-//   //   }
+    function adicionarFilme(e) {
+        e.preventDefault()
 
-//   //   try {
-//   //     // GET(PEGAR), POST(POSTAR), UPDATE(ATUALIZAR), DELETE(DELETAR)
+        if (titulo.trim === '') {
+            toast.error('Digite o nome do filme')
+        }
+        if (genero.trim === '') {
+            toast.error('Digite o genero do filme')
+        }
 
-//   //     const res = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
-//   //                             // res.json = formato de objeto {}
-//   //     const dados = await res.json();
-//   //     console.log(dados)
-//   //     if(dados.erro){
-//   //       setErro("CEP não encontrado");
-//   //       return;
-//   //     }
+        const novoFilme = {
+            id: Date.now(),
+            titulo: titulo,
+            genero: genero,
+            assistido: false
+        }
 
-//   //     setEndereco(dados);
-//   //   } catch (error) {
-//   //     setErro("Não foi possível consultar o CEP");
-//   //   }
-//   // }
+        setFilmes(...filmes, novoFilme)
 
-//   return (
-//     <Contador />
-//     // <div>
-//     //   {/* <h1>Buscar endereço</h1>
-//     //   <BuscaCep cep={cep} setCep={setCep} buscarCep={buscarCep} />
-//     //   <Resultado endereco={endereco} />
-//     //   {erro && <p>{erro}</p>} */}
-//     // </div>
-//   );
-// }
+        setTitulo('')
+        setGenero('')
 
-// export default App;
+        toast.success('Filme adicionado!')
+
+    }
+
+    function marcarComoAssistido(id) {
+        const filmesAtualizados = filmes.map((filme) => {
+            if (filme.id === id) {
+                return {
+                    ...filme,
+                    assistido: true
+                };
+            }
+
+            return filme;
+        });
+
+        setFilmes(filmesAtualizados)
+
+        toast.success('Marcado como assistido!')
+
+        function selecionarFilme(id) {
+            setFilmeSelecionado(id)
+        }
+
+        function fecharDetalhes() {
+            setFilmeSelecionado(null)
+        }
+
+        const filmesFiltrados = filmes.filter((filmes) => {
+            if (filtro === 'assistidos') {
+                return filmes.assistido === true
+            }
+
+            if (filtro === 'pendentes') {
+                return filmes.assistido === false
+            }
+
+            return true
+        })
+
+        const filmeEncontrado = filmes.find((filmes) => {
+            return filmes.id === filmeSelecionado
+        })
+    }
+
+    return (
+        <main className="app">
+            <ToastContainer position="top-right" autoClose={2500} theme='dark' />
+
+            <div className="container">
+                <Header />
+
+                <Card titulo={'Adicionar filme'}>
+                    <FormularioFilme
+                        titulo={titulo}
+                        setTitulo={setTitulo}
+                        setGenero={setGenero}
+                        adicionarFilme={adicionarFilme}
+
+                    />
+                </Card>
+
+                <Card titulo={'Filtrar filmes'}>
+                    <Filtro filtro={filtro} setFiltro={setFiltro} />
+                </Card>
+
+                <Card titulo={'Filmes'}>
+                    <ListaFilmes 
+                    filmes={filmesFiltrados}
+                    selecionarFilme={selecionarFilme}
+                    marcarComoAssistido={marcarComoAssistido}          
+                    />
+                </Card>
+
+                {filmeEncontrado && (
+                    <DetalhesFilme
+                    filme={filmeEncontrado}
+                    fecharDetalhes={fecharDetalhes}
+                    />
+                )}
+            </div>
+        </main>
+    )
+
+}
+
+export default App;
