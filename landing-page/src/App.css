@@ -1,0 +1,182 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8%;
+    background: #111827;
+    color: white;
+}
+
+.header h2 {
+    margin: 0;
+}
+
+.header nav {
+    display: flex;
+    gap: 20px;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    padding: 90px 8%;
+    text-align: center;
+    background: #2563eb;
+    color: white;
+}
+
+.hero h1 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 40px;
+}
+
+.hero p {
+    margin-bottom: 30px;
+}
+
+.hero button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    background-color: white;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.img-content {
+    background-image: url('https://images.unsplash.com/photo-1607705703571-c5a8695f18f6?auto=format&fit=crop&w=1200&q=80');
+    object-fit: cover;
+    background-repeat: repeat-x;
+}
+
+
+.beneficios {
+    padding: 6px 8%;
+
+}
+
+.beneficios h2 {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+    padding: 25px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.contato {
+    padding: 60px 8%;
+    background-color: white;
+}
+
+.contato h2 {
+    text-align: center;
+}
+
+.form {
+    max-width: 500px;
+    margin: 30px auto 0;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    border: 1px solid #ccc;
+
+}
+
+.campo input:focus {
+    outline: 2px solid #2563eb;
+}
+
+form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #2563eb;
+    color: white;
+}
+
+
+.footer {
+    padding: 25px;
+    text-align: center;
+    background-color: #111827;
+    color: white;
+}
+
+/* DEPOIMENTOS */
+
+.depoimentos {
+    padding: 60px 8%;
+    background: #f5f5f5;
+}
+
+.depoimentos h2 {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.depoimentos strong {
+    color: #f59e0b;
+}
+
+/* ENTRE EM CONTATO */
+
+.entre-contato {
+  padding: 60px 8%;
+  background: white;
+}
+
+.entre-contato h2 {
+  text-align: center;
+}
+
+.entre-contato form {
+  max-width: 500px;
+  margin: 30px auto 0;
+}
+
+.entre-contato button {
+  width: 100%;
+  padding: 12px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #2563eb;
+  color: white;
+
+  cursor: pointer;
+}
+

@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0b0b0b;
+  color: #f5f5f5;
+}
+
+button {
+  font: inherit;
+}
+
+.app {
+  width: min(900px, 92%);
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.cabecalho {
+  margin-bottom: 28px;
+}
+
+.cabecalho h1 {
+  margin: 6px 0;
+  font-size: 36px;
+}
+
+.cabecalho p {
+  color: #b8b8b8;
+}
+
+.cabecalho .destaque {
+  color: #ff7a00;
+  font-weight: bold;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  padding: 24px;
+  border: 1px solid #2c2c2c;
+  border-radius: 10px;
+  background: #151515;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.card-conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.numero {
+  margin: 8px 0;
+  font-size: 56px;
+  font-weight: bold;
+  color: #ff7a00;
+}
+
+.botoes {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 11px 16px;
+  background: #ff7a00;
+  color: #111111;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.secundario {
+  background: transparent;
+  color: #f5f5f5;
+  border: 1px solid #444444;
+}
+
+.status {
+  margin: 0;
+  padding: 12px;
+  border-left: 4px solid #ff7a00;
+  background: #1d1d1d;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cabecalho h1 {
+    font-size: 30px;
+  }
+}

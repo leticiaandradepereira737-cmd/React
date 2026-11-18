@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0b0b0b;
+  color: #f5f5f5;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container {
+  width: min(800px, 100%);
+  margin: 0 auto;
+}
+
+.cabecalho {
+  margin-bottom: 28px;
+}
+
+.aula {
+  margin: 0;
+  color: #ff7a00;
+  font-weight: bold;
+}
+
+.cabecalho h1 {
+  margin: 6px 0;
+  font-size: 38px;
+}
+
+.cabecalho p {
+  color: #b8b8b8;
+}
+
+.formulario {
+  padding: 22px;
+  border: 1px solid #2c2c2c;
+  border-radius: 10px;
+  background: #151515;
+}
+
+.formulario label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.linha-formulario {
+  display: flex;
+  gap: 10px;
+}
+
+.linha-formulario input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #444444;
+  border-radius: 6px;
+  outline: none;
+  background: #202020;
+  color: #ffffff;
+}
+
+.linha-formulario input:focus {
+  border-color: #ff7a00;
+}
+
+button {
+  padding: 11px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #ff7a00;
+  color: #111111;
+  font-weight: bold;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.resumo {
+  display: flex;
+  gap: 24px;
+  margin: 20px 0;
+  padding: 16px 20px;
+  border: 1px solid #2c2c2c;
+  border-radius: 8px;
+  background: #151515;
+}
+
+.resumo p {
+  margin: 0;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tarefa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px;
+  border: 1px solid #2c2c2c;
+  border-left: 4px solid #ff7a00;
+  border-radius: 8px;
+  background: #151515;
+}
+
+.tarefa h3 {
+  margin: 0 0 8px;
+}
+
+.tarefa p {
+  margin: 0;
+  color: #b8b8b8;
+}
+
+.tarefa.concluida {
+  border-left-color: #44c47d;
+}
+
+.tarefa.concluida h3 {
+  color: #8b8b8b;
+  text-decoration: line-through;
+}
+
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.remover {
+  border: 1px solid #555555;
+  background: transparent;
+  color: #ffffff;
+}
+
+.lista-vazia {
+  padding: 22px;
+  border: 1px solid #2c2c2c;
+  border-radius: 8px;
+  background: #151515;
+  color: #b8b8b8;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .linha-formulario {
+    flex-direction: column;
+  }
+
+  .tarefa {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .acoes {
+    flex-direction: column;
+  }
+
+  .resumo {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
